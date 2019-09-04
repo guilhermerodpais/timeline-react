@@ -1,33 +1,243 @@
-.App {
-  text-align: center;
+* {
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+  box-sizing: border-box;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+html,
+body {
+  height: 100%;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+body {
+  margin: 0;
+  background-color: #eff1fd;
+}
+
+nav {
+  background: #595959;
+  color: #fff;
+  border-radius: 0 !important;
+}
+
+.container {
+  height: 100vh;
+  width: 100%;
+  padding: 0;
+  margin: 0;
+  display: -webkit-box;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: -webkit-flex;
   display: flex;
-  flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
 }
 
-.App-link {
-  color: #61dafb;
+div#root {
+  height: 100%;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
+.timeline {
+  list-style: none;
+  position: relative;
+  width: 70vw;
+  margin: 0;
+  padding: 0;
+}
+
+.timeline:before {
+  top: 0;
+  bottom: 0;
+  position: absolute;
+  content: " ";
+  width: 3px;
+  background-color: #eeeeee;
+  left: 50%;
+  margin-left: -1.5px;
+}
+
+.timeline>li {
+  margin-bottom: 20px;
+  position: relative;
+}
+
+.timeline>li:before,
+.timeline>li:after {
+  content: " ";
+  display: table;
+}
+
+.timeline>li:after {
+  clear: both;
+}
+
+.timeline>li:before,
+.timeline>li:after {
+  content: " ";
+  display: table;
+}
+
+.timeline>li:after {
+  clear: both;
+}
+
+.timeline>li>.timeline-panel {
+  width: 46%;
+  float: right;
+  border: none;
+  border-radius: 3px;
+  padding: 0;
+  position: relative;
+  background-color: #f1f1f1;
+  box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
+}
+
+.timeline>li>.timeline-panel:before {
+  position: absolute;
+  top: 1rem;
+  display: inline-block;
+  border-top: 10px solid transparent;
+  border-left: 10px solid #ccc;
+  border-right: 0 solid #ccc;
+  border-bottom: 10px solid transparent;
+  content: " ";
+
+  border-left-width: 0;
+  border-right-width: 10px;
+  left: -10px;
+  right: auto;
+}
+
+.timeline>li>.timeline-panel:after {
+  position: absolute;
+  top: 1rem;
+  display: inline-block;
+  border-top: 9px solid transparent;
+  border-left: 9px solid #fff;
+  border-right: 0 solid #fff;
+  border-bottom: 9px solid transparent;
+  content: " ";
+  border-left-width: 0;
+  border-right-width: 9px;
+  left: -9px;
+  right: auto;
+}
+
+.timeline>li>.timeline-badge {
+  color: #fff;
+  position: absolute;
+  top: 5px;
+  left: 50%;
+  margin-left: -15px;
+  z-index: 100;
+  border-top-right-radius: 50%;
+  border-top-left-radius: 50%;
+  border-bottom-right-radius: 50%;
+  border-bottom-left-radius: 50%;
+}
+
+.timeline>li>.timeline-badge img {
+  width: 3rem;
+}
+
+.timeline-heading {
+  display: flex;
+  justify-content: space-between;
+  padding: 1.2rem;
+  background-color: #fff;
+}
+
+.timeline-item {
+  margin-top: 0;
+  font-size: 1.4rem;
+  color: #868686;
+}
+
+.timeline-item img {
+  width: 1.3rem;
+  margin-right: 0.5rem;
+}
+
+.timeline-body {
+  padding: 1rem 2rem 2rem 2rem;
+}
+
+.timeline-body table {
+  width: 100%;
+}
+
+.timeline-body thead {
+  border-bottom: 1px solid #e2e2e2;
+}
+
+.timeline-body table th {
+  padding-bottom: 0.5rem;
+  color: #545454;
+  font-weight: 500;
+  font-size: 1.3rem;
+}
+
+.timeline-body table tr:not(:first-child) {
+  border-top: 1px solid #e2e2e2;
+}
+
+.timeline-body table td {
+  padding-bottom: 0.5rem;
+  color: #6f6f6f;
+  font-weight: 500;
+  font-size: 1.2rem;
+  padding: 0.5rem 0;
+}
+
+.timeline-body>p,
+.timeline-body>ul {
+  margin-bottom: 0;
+}
+
+.timeline-body>p+p {
+  margin-top: 5px;
+}
+
+@media (max-width: 767px) {
+  ul.timeline:before {
+    left: 20px;
   }
-  to {
-    transform: rotate(360deg);
+
+  ul.timeline>li>.timeline-panel {
+    width: 100%;
+  }
+
+  ul.timeline>li>.timeline-badge {
+    left: 5px;
+    margin-left: 0;
+    top: -47px;
+  }
+
+  ul.timeline>li>.timeline-panel {
+    float: right;
+  }
+
+  ul.timeline>li>.timeline-panel:before {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: 14px;
+    top: -18px;
+    right: auto;
+    transform: rotate(90deg);
+  }
+
+  ul.timeline>li>.timeline-panel:after {
+    border-left-width: 0;
+    border-right-width: 15px;
+    left: 14px;
+    top: -16px;
+    right: auto;
+    transform: rotate(90deg);
+  }
+
+  .timeline>li {
+    margin-bottom: 70px;
+    position: relative;
   }
 }
